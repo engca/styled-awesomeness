@@ -8,20 +8,12 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
-class App extends Component {
-  render() {
-    return (
-      <Container>
-        <GlobalStyle />
-        <Button>Hello</Button>
-        <Button danger rotationTime={5}>
-          Hello
-        </Button>
-        <Anchor href="http://google.com">Go to google</Anchor>
-      </Container>
-    );
-  }
-}
+const awesomeCard = css`
+  box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px;
+`;
 
 const Container = styled.div`
   height: 100vh;
@@ -29,6 +21,32 @@ const Container = styled.div`
   background-color: pink;
 `;
 
+const Input = styled.input.attrs({
+  required: true
+})`
+  border: none;
+  ${awesomeCard};
+`;
+
+class App extends Component {
+  render() {
+    return (
+      <Container>
+        <GlobalStyle />
+        <Input placeholder="hello" />
+        {/*
+        <Button>Hello</Button>
+        <Button danger rotationTime={5}>
+          Hello
+        </Button>
+        <Anchor href="http://google.com">Go to google</Anchor>
+        */}
+      </Container>
+    );
+  }
+}
+
+/*
 const Button = styled.button`
   border-radius: 50px;
   padding: 5px;
@@ -63,5 +81,6 @@ const rotation = keyframes`
     transform: rotate(360deg);
   }
 `;
+*/
 
 export default App;
